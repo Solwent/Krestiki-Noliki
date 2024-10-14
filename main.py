@@ -1,3 +1,5 @@
+from draw import check_draw
+
 board_size = int(input('Введите желаемый размер поля\n'))
 board_numbers = board_size ** 2
 board = [i + 1 for i in range(board_numbers)]
@@ -18,13 +20,13 @@ def game_step():
     current_player = 'X'
     step = 1
 
-    while step<=board_numbers:
+    while check_draw(step,board_numbers) == False:
         index = int(input('Ход игрока ' + 
                       current_player + 
                       ' Введите номер поля (0 - выход):'))
         if index == 0:
             break
-        step += 1
+        
         board[index-1] = current_player
 
         if (current_player == 'X'):
@@ -33,8 +35,12 @@ def game_step():
             current_player = 'X'
         
         draw_board(board_size)
-
         
+        step += 1
+        if check_draw(step, board_numbers):
+            print('Ничья!')
+            break
+      
 
 def start_game():
     
