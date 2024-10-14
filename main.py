@@ -1,6 +1,9 @@
+board_size = int(input('Введите желаемый размер поля\n'))
+board_numbers = board_size ** 2
+
 # Игровое поле
 def draw_board(board_size):
-    board_numbers = board_size ** 2  # общее количество ячеек
+      # общее количество ячеек
     board = [i + 1 for i in range(board_numbers)]  # заполняем доску числами от 1 до board_numbers
     
     print(' ' + '____ ' * board_size)  # верхняя граница
@@ -19,9 +22,16 @@ def game_step():
 
 
 def start_game():
-    board_size = int(input('Введите желаемый размер поля\n'))
+    current_player = 'X'
+    step = 1
+    
     draw_board(board_size)
-    pass
+
+    while step<=board_numbers:
+        index = input('Ход игрока ' + 
+                      current_player + 
+                      ' Введите номер поля (0 - выход):')
+
 
 print('Игра "Крестики-Нолики запущена!"')
 start_game()
