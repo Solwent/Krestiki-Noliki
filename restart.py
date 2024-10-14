@@ -1,10 +1,7 @@
-from keyboard import *
-import main
-from draw import *
-from win import *
+import os
 
-def restart():
+def restart_program():
     print('Игра завершена. Хотите ли начать заново?')
-    do = input('Для рестарта введите 1')
+    do = int(input('Для рестарта введите 1\n'))
     if do == 1:
-        restart(main)
+        os.system("python main.py")

@@ -1,3 +1,5 @@
+from restart import restart_program
+
 board_size = int(input('Введите желаемый размер поля\n'))
 board_numbers = board_size ** 2
 board = [i + 1 for i in range(board_numbers)]
@@ -23,11 +25,15 @@ def game_step():
                       current_player + 
                       ' Введите номер поля (0 - выход):'))
         if index == 0:
+            restart_program()
             break
+
         step += 1
         board[index-1] = current_player
         
         draw_board(board_size)
+    if step > board_numbers:
+        restart_program()
 
         
 
