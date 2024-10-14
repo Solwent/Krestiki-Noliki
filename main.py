@@ -19,15 +19,12 @@ def game_step():
     step = 1
 
     while step<=board_numbers:
-        index = input('Ход игрока ' + 
+        index = int(input('Ход игрока ' + 
                       current_player + 
-                      ' Введите номер поля (0 - выход):')
-        if (int(index) == 0):
+                      ' Введите номер поля (0 - выход):'))
+        if index == 0:
             break
         step += 1
-    
-    board[index-1] = current_player
-    return True
 
 
 def start_game():
