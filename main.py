@@ -25,7 +25,11 @@ def game_step():
         if index == 0:
             break
         step += 1
+        board[index-1] = current_player
+        
+        draw_board(board_size)
 
+        
 
 def start_game():
     
