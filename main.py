@@ -26,6 +26,11 @@ def game_step():
             break
         step += 1
         board[index-1] = current_player
+
+        if (current_player == 'X'):
+            current_player = 'O'
+        else:
+            current_player = 'X'
         
         draw_board(board_size)
 
@@ -37,6 +42,5 @@ def start_game():
     game_step()
 
     
-
 print('Игра "Крестики-Нолики запущена!"')
 start_game()
