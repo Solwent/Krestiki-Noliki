@@ -1,3 +1,5 @@
+from inputcorrectness import inputcor
+
 board_size = int(input('Введите желаемый размер поля\n'))
 board_numbers = board_size ** 2
 board = [i + 1 for i in range(board_numbers)]
@@ -25,10 +27,12 @@ def game_step():
         if index == 0:
             break
         step += 1
-        board[index-1] = current_player
-        
-        draw_board(board_size)
-
+        if inputcor(index, board_numbers, board) == True:
+            board[index-1] = current_player
+            draw_board(board_size)
+        else:
+            step -= 1
+            print('Неверный номер!')
         
 
 def start_game():
@@ -36,7 +40,6 @@ def start_game():
     draw_board(board_size)
     game_step()
 
-    
 
 print('Игра "Крестики-Нолики запущена!"')
 start_game()
