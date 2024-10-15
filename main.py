@@ -46,10 +46,6 @@ def game_step():
         if check_draw(step, board_numbers) == True:
             print('Ничья!')
             restart_program()   
-        
-        draw_board(board_size)
-
-        
 
 
 def start_game():
