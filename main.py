@@ -1,6 +1,7 @@
 from restart import restart_program
 from inputcorrectness import inputcor
 from draw import check_draw
+from win import check_win
 
 board_size = int(input('Введите желаемый размер поля\n'))
 board_numbers = board_size ** 2
@@ -22,7 +23,7 @@ def game_step():
     current_player = 'X'
     step = 1
 
-    while check_draw(step,board_numbers) == False:
+    while check_draw(step,board_numbers) == False and (check_win(board,board_size) == False):
         index = int(input('Ход игрока ' + 
                       current_player + 
                       ' Введите номер поля (0 - выход):'))
@@ -43,9 +44,12 @@ def game_step():
             step -= 1
             print('Неверный номер!')
 
-        if check_draw(step, board_numbers) == True:
+        if check_draw(step, board_numbers) == True and check_win(board,board_size) == False:
             print('Ничья!')
-            restart_program()   
+            restart_program()
+
+        if check_win(board,board_size) != False and check_draw(step, board_numbers) != True:
+            print('Выиграл игрок' + check_win(board,board_size))
 
 
 def start_game():
