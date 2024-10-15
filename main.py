@@ -7,12 +7,14 @@ board = [i + 1 for i in range(board_numbers)]
 
 # Игровое поле
 def draw_board(board_size):  
-    print(' ' + '____ ' * board_size)
+    print(' ' + '____ ' * board_size)  # верхняя граница
     for i in range(board_size):
+        # левый край и ячейки
         row = '|'
         for j in range(board_size):
-            row += f' {board[i * board_size + j]:<2} |'
-        print('|' + '----|' * board_size)
+            row += f' {board[i * board_size + j]:<2} |'  # форматирование для каждого элемента
+        print(row)  # вывод строки
+        print('|' + '----|' * board_size)  # границы ячеек
 
 
 def game_step():
